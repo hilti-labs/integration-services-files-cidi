@@ -68,7 +68,7 @@ Resources:
             - !Ref SourceSecurityGroup
           Subnets: !Ref Subnets
       LoadBalancers:
-        - ContainerName: demo-netcore-api
+        - ContainerName: integration-services-files
           ContainerPort: 80
           TargetGroupArn: !Ref TargetGroup
 
@@ -81,14 +81,14 @@ Resources:
       TaskDefinition: !Ref TaskDefinition
       LaunchType: EC2
       LoadBalancers:
-        - ContainerName: demo-netcore-api
+        - ContainerName: integration-services-files
           ContainerPort: 80
           TargetGroupArn: !Ref TargetGroup
 
   TaskDefinition:
     Type: AWS::ECS::TaskDefinition
     Properties:
-      Family: !Sub ${AWS::StackName}-demo-netcore-api
+      Family: !Sub ${AWS::StackName}-integration-services-files
       RequiresCompatibilities:
         - !If [ Fargate, "FARGATE", "EC2" ]
       Memory: 2048
@@ -96,8 +96,8 @@ Resources:
       NetworkMode: !If [ Fargate, "awsvpc", "bridge" ]
       ExecutionRoleArn: !Ref TaskExecutionRole
       ContainerDefinitions:
-        - Name: demo-netcore-api
-          Image: 229130418844.dkr.ecr.eu-west-1.amazonaws.com/architecture/demo-netcore-api:latest
+        - Name: integration-services-files
+          Image: 229130418844.dkr.ecr.eu-west-1.amazonaws.com/architecture/integration-services-files:latest
           Essential: true
           Memory: 512
           PortMappings:

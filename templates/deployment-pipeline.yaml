@@ -130,7 +130,7 @@ Resources:
             post_build:
               commands:
                 - docker push "$IMAGE_URI"
-                - printf '[{"name":"demo-netcore-api","imageUri":"%s"}]' "$IMAGE_URI" > images.json
+                - printf '[{"name":"integration-services-files","imageUri":"%s"}]' "$IMAGE_URI" > images.json
           artifacts:
             files: images.json
       Environment:

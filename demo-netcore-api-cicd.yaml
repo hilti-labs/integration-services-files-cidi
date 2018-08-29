@@ -29,7 +29,7 @@ Parameters:
 
   GitHubRepo:
     Type: String
-    Default: demo-netcore-api
+    Default: integration-services-files
     Description: The repo name of the sample service.
 
   GitHubBranch:
@@ -45,7 +45,7 @@ Parameters:
 
   TemplateBucket:
     Type: String
-    Default: demo-netcore-api-cicd
+    Default: integration-services-files-cicd
     Description: >
       The S3 bucket from which to fetch the templates used by this stack.
 
